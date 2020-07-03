@@ -1,4 +1,5 @@
 ﻿using System;
+using TodoKernel_mobile.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace TodoKernel_mobile
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new SignInPage();
         }
 
         protected override void OnStart()
