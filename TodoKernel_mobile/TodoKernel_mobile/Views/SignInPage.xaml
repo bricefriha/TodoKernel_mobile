@@ -4,12 +4,87 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TodoKernel_mobile.Views.SignInPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+             x:Class="TodoKernel_mobile.Views.SignInPage"
+             BackgroundColor="{StaticResource SecondaryColour}">
+    <ContentPage.Content >
+        <Frame HorizontalOptions="Fill"
+               VerticalOptions="Fill"
+               Margin="20, 80, 20, 150"
+               CornerRadius="20"
+               BackgroundColor="{StaticResource BackgroundColour}"
+               >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!-- Title -->
+                <Label Text="Login"
+                       FontSize="38"
+                       Grid.Row="0"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Start"
+                       TextColor="{StaticResource FontColour}"/>
+                <!-- Login -->
+
+                <StackLayout Grid.Row="1">
+                    <Label Text="Username or Email address"
+                               TextColor="{StaticResource PrimaryColour}"
+                               Grid.Row="0"
+                               FontAttributes="Bold"/>
+                    <Frame Grid.Row="1" 
+                           Padding="15,0,15,0"
+                           Margin="1"
+                           CornerRadius="8">
+                            <Entry Text="{Binding Login}"
+                               
+                                    HorizontalOptions="Fill"
+                                   VerticalOptions="End"/>
+                        </Frame>
+
+                </StackLayout>
+                <!-- Password -->
+                <StackLayout Grid.Row="2">
+                    <Label Text="Password"
+                               TextColor="{StaticResource PrimaryColour}"
+                               Grid.Row="0"
+                               FontAttributes="Bold"/>
+                    <Frame Grid.Row="1" 
+                           Padding="15,0,15,0"
+                           Margin="1"
+                           CornerRadius="8">
+                        <Entry Text="{Binding Login}"
+                               IsPassword="True"
+                               
+                                    HorizontalOptions="Fill"
+                                   VerticalOptions="End"/>
+                    </Frame>
+
+                </StackLayout>
+                <!-- Log in button -->
+                <StackLayout Grid.Row="3">
+                    <Label Text="Did you forget your password?"
+                               TextColor="{StaticResource FontColour}"
+                               Grid.Row="0"
+                           HorizontalOptions="End"/>
+                    <Button  
+                           Padding="15,0,15,0"
+                           Margin="1"
+                           CornerRadius="8"
+                        BackgroundColor="{StaticResource PrimaryColour}"
+                        TextColor="{StaticResource BackgroundColour}"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        Text="Login"/>
+
+                </StackLayout>
+                
+
+
+            </Grid>
+        </Frame>
+        
     </ContentPage.Content>
 </ContentPage>

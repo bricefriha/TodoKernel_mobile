@@ -6,6 +6,11 @@
              mc:Ignorable="d"
              x:Class="TodoKernel_mobile.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Color x:Key="PrimaryColour">#005AFF</Color>
+            <Color x:Key="SecondaryColour">#FFA500</Color>
+            <Color x:Key="FontColour">#1a1a1a</Color>
+            <Color x:Key="BackgroundColour">#fafafa</Color>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
