@@ -7,15 +7,17 @@
              x:Class="TodoKernel_mobile.Views.SignInPage"
              BackgroundColor="{StaticResource SecondaryColour}">
     <ContentPage.Content >
-        <Frame HorizontalOptions="Fill"
-               VerticalOptions="Fill"
-               Margin="20, 80, 20, 150"
+        <Frame HorizontalOptions="CenterAndExpand"
+               VerticalOptions="Start"
+               Margin="0,150,0,0"
+               WidthRequest="330"
+               
                CornerRadius="20"
                BackgroundColor="{StaticResource BackgroundColour}"
                >
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="90"/>
                     <RowDefinition Height="80"/>
                     <RowDefinition Height="100"/>
                     <RowDefinition Height="*"/>
@@ -28,7 +30,6 @@
                        HorizontalOptions="Start"
                        TextColor="{StaticResource FontColour}"/>
                 <!-- Login -->
-
                 <StackLayout Grid.Row="1">
                     <Label Text="Username or Email address"
                                TextColor="{StaticResource PrimaryColour}"

@@ -9,6 +9,7 @@ namespace TodoKernel_mobile
     {
         public App()
         {
+
             InitializeComponent();
 
             MainPage = new SignInPage();
