@@ -8,9 +8,10 @@
              BackgroundColor="{StaticResource SecondaryColour}">
     <ContentPage.Content >
         <Frame HorizontalOptions="CenterAndExpand"
-               VerticalOptions="Start"
-               Margin="0,150,0,0"
-               WidthRequest="330"
+               VerticalOptions="CenterAndExpand"
+               Margin="0,0,0,80"
+               WidthRequest="320"
+               HeightRequest="400"
                
                CornerRadius="20"
                BackgroundColor="{StaticResource BackgroundColour}"
@@ -67,9 +68,10 @@
                 <!-- Log in button -->
                 <StackLayout Grid.Row="3">
                     <Label Text="Did you forget your password?"
-                               TextColor="{StaticResource FontColour}"
-                               Grid.Row="0"
-                           HorizontalOptions="End"/>
+                           TextColor="{StaticResource FontColour}"
+                           Grid.Row="0"
+                           HorizontalOptions="EndAndExpand"
+                           />
                     <Button  
                            Padding="15,0,15,0"
                            Margin="1"
