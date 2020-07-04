@@ -4,15 +4,33 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
              x:Class="TodoKernel_mobile.Views.SignInPage"
              BackgroundColor="{StaticResource SecondaryColour}">
     <ContentPage.Content >
-        <Frame HorizontalOptions="CenterAndExpand"
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Gradient in background-->
+            <magic:GradientView Grid.Row="0" VerticalOptions="FillAndExpand">
+                <magic:GradientView.GradientSource>
+                    <magic:GradientCollection>
+                        <magic:LinearGradient Angle="50">
+                            <magic:GradientStop Color="{StaticResource SecondaryColour}" Offset="0.2"  />
+                            <magic:GradientStop Color="{StaticResource BackgroundColour}" Offset="1" />
+                        </magic:LinearGradient>
+                    </magic:GradientCollection>
+                </magic:GradientView.GradientSource>
+            </magic:GradientView>
+            
+            <!-- Main frame -->
+            <Frame  Grid.Row="0" HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand"
-               Margin="0,0,0,80"
+               Margin="0,0,0,90"
                WidthRequest="320"
                HeightRequest="400"
-               
                CornerRadius="20"
                BackgroundColor="{StaticResource BackgroundColour}"
                >
@@ -39,7 +57,7 @@
                     <Frame Grid.Row="1" 
                            Padding="15,0,15,0"
                            Margin="1"
-                           CornerRadius="8">
+                           CornerRadius="10">
                             <Entry Text="{Binding Login}"
                                
                                     HorizontalOptions="Fill"
@@ -56,7 +74,7 @@
                     <Frame Grid.Row="1" 
                            Padding="15,0,15,0"
                            Margin="1"
-                           CornerRadius="8">
+                           CornerRadius="10">
                         <Entry Text="{Binding Login}"
                                IsPassword="True"
                                
@@ -88,6 +106,9 @@
 
             </Grid>
         </Frame>
-        
+        </Grid>
+
+
+
     </ContentPage.Content>
 </ContentPage>
