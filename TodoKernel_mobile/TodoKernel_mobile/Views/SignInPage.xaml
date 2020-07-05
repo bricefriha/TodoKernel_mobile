@@ -32,8 +32,7 @@
                WidthRequest="320"
                HeightRequest="400"
                CornerRadius="20"
-               BackgroundColor="{StaticResource BackgroundColour}"
-               >
+               BackgroundColor="{StaticResource BackgroundColour}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="90"/>
@@ -94,11 +93,11 @@
                            Padding="15,0,15,0"
                            Margin="1"
                            CornerRadius="8"
-                        BackgroundColor="{StaticResource PrimaryColour}"
-                        TextColor="{StaticResource BackgroundColour}"
-                        FontSize="18"
-                        FontAttributes="Bold"
-                        Text="Login"/>
+                           BackgroundColor="{StaticResource PrimaryColour}"
+                           TextColor="{StaticResource BackgroundColour}"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           Text="Login"/>
 
                 </StackLayout>
                 
