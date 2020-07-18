@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CustardApi.Objects;
+using System;
+using System.Net.Http.Headers;
+using TodoKernel_mobile.Models;
 using TodoKernel_mobile.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -7,12 +10,21 @@ namespace TodoKernel_mobile
 {
     public partial class App : Application
     {
+        public static User userSession { get; set; }
+        public static Service WsHost { get; set; }
+
+
         public App()
         {
 
             InitializeComponent();
 
             MainPage = new SignInPage();
+
+            userSession = new User();
+
+            // Set the webservice host
+            WsHost = new Service("localhost", 80);
         }
 
         protected override void OnStart()

@@ -67,14 +67,14 @@
                 <!-- Password -->
                 <StackLayout Grid.Row="2">
                     <Label Text="Password"
-                               TextColor="{StaticResource PrimaryColour}"
-                               Grid.Row="0"
-                               FontAttributes="Bold"/>
+                           TextColor="{StaticResource PrimaryColour}"
+                           Grid.Row="0"
+                           FontAttributes="Bold"/>
                     <Frame Grid.Row="1" 
                            Padding="15,0,15,0"
                            Margin="1"
                            CornerRadius="10">
-                        <Entry Text="{Binding Login}"
+                            <Entry Text="{Binding Password}"
                                IsPassword="True"
                                
                                     HorizontalOptions="Fill"
@@ -90,6 +90,7 @@
                            HorizontalOptions="EndAndExpand"
                            />
                     <Button  
+                           x:Name="btnSignin"
                            Padding="15,0,15,0"
                            Margin="1"
                            CornerRadius="8"
@@ -97,13 +98,16 @@
                            TextColor="{StaticResource BackgroundColour}"
                            FontSize="18"
                            FontAttributes="Bold"
-                           Text="Login"/>
+                           Text="Login"
+                            Command="{Binding SignIn}"
+                        />
 
                 </StackLayout>
-                
+                    <Label Text="{Binding LoadingState}"/>
 
 
-            </Grid>
+
+                </Grid>
         </Frame>
         </Grid>
 
