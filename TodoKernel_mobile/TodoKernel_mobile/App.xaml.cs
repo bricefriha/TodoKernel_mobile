@@ -1,6 +1,7 @@
-﻿using CustardApi.Objects;
+﻿
 using System;
 using System.Net.Http.Headers;
+using CustardApi.Objects;
 using TodoKernel_mobile.Models;
 using TodoKernel_mobile.Views;
 using Xamarin.Forms;
@@ -24,7 +25,7 @@ namespace TodoKernel_mobile
             userSession = new User();
 
             // Set the webservice host
-            WsHost = new Service("localhost", 80);
+            WsHost = new Service("192.168.1.67");
         }
 
         protected override void OnStart()
