@@ -22,10 +22,24 @@ namespace TodoKernel_mobile.Views
             // Binding
             BindingContext = _vm = new SignInViewModel();
         }
+        /// <summary>
+        /// Trigered when we click on sign in
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void btnSignin_Clicked(object sender, EventArgs e)
+        {
+            // Try to connect the user
+            //App.userSession = await _vm.LogIn(); 
 
-        //private void btnSignin_Clicked(object sender, EventArgs e)
-        //{
-        //    _vm.Authentificate();
-        //}
+            // If the user as been identified
+            if (App.userSession != null)
+            {
+                // Navigate to the main page
+                //await this.Navigation.PushAsync(new AppShell());
+                App.Current.MainPage = new NavigationPage (new AppShell());
+            }
+        }
+
     }
 }

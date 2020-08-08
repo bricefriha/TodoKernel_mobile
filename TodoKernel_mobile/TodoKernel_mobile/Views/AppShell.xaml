@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TodoKernel_mobile.Views.AppShell" 
+             xmlns:views="clr-namespace:TodoKernel_mobile.Views"
+       >
+    
+    <FlyoutItem Title="About">
+        
+        <ShellContent x:Name="ItemsPage"
+                      ContentTemplate="{DataTemplate views:ItemsPage}" />
+    </FlyoutItem>
+    <!--<MenuItem Text="Todolists" >
+        <Shell.MenuItemTemplate>
+            <DataTemplate>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <CollectionView Grid.Row="0" 
+                                    ItemsSource="{Binding Todolists.Title}"/>
+                    --><!--Button to add a new todolist--><!--
+                    <Button Grid.Row="1"
+                            CornerRadius="50"/>
+                </Grid>
+
+            </DataTemplate>
+        </Shell.MenuItemTemplate>
+    </MenuItem>-->
+
+
+</Shell>

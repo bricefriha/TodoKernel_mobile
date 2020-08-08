@@ -6,8 +6,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using TodoKernel_mobile.Models;
+using TodoKernel_mobile.Services;
 using TodoKernel_mobile.ToolBox;
+using TodoKernel_mobile.Views;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace TodoKernel_mobile.Viewmodels
 {
@@ -52,10 +55,10 @@ namespace TodoKernel_mobile.Viewmodels
                 return _password;
             }
         }
-        private Command _signIn;
-        public Command SignIn
+        private Xamarin.Forms.Command _signIn;
+        public Xamarin.Forms.Command SignIn
         {
-            
+
             get
             {
                 return _signIn;
@@ -63,7 +66,7 @@ namespace TodoKernel_mobile.Viewmodels
         }
         public SignInViewModel()
         {
-            _signIn = new Command(async () =>
+            _signIn = new Xamarin.Forms.Command(async () =>
             {
                 string body;
 
@@ -78,11 +81,30 @@ namespace TodoKernel_mobile.Viewmodels
                 // Execute the request
                 App.userSession = await App.WsHost.ExecutePost<User>("users", "authenticate", null, body);
 
-                LoadingState = "Logged in";
+                if (App.userSession != null)
+                {
+                    //var nav = new Navigation();
+
+                    //await nav.ToMainpage();
+                    //await App.Current.MainPage.Navigation.PushAsync(, false);
+                    App.Current.MainPage = App.Nav;
+                    await App.Nav.PushAsync(new AppShell());
+
+                    LoadingState = "Logged in";
+
+                }
+                else
+                {
+                    LoadingState = "Nope";
+
+                }
+
+
             });
 
             Login = "brice.friha@outlook.com";
             Password = "pwd";
         }
+    
     }
 }

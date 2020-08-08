@@ -13,6 +13,7 @@ namespace TodoKernel_mobile
     {
         public static User userSession { get; set; }
         public static Service WsHost { get; set; }
+        public static NavigationPage Nav { get; set; }
 
 
         public App()
@@ -20,7 +21,8 @@ namespace TodoKernel_mobile
 
             InitializeComponent();
 
-            MainPage = new SignInPage();
+            MainPage = new AppShell();
+            //MainPage = new SignInPage();
 
             userSession = new User();
 
