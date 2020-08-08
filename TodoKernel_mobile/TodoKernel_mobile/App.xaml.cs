@@ -21,8 +21,8 @@ namespace TodoKernel_mobile
 
             InitializeComponent();
 
-            MainPage = new AppShell();
-            //MainPage = new SignInPage();
+            //MainPage = new AppShell();
+            MainPage = new SignInPage();
 
             userSession = new User();
 

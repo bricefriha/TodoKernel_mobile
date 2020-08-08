@@ -83,14 +83,8 @@ namespace TodoKernel_mobile.Viewmodels
 
                 if (App.userSession != null)
                 {
-                    //var nav = new Navigation();
-
-                    //await nav.ToMainpage();
-                    //await App.Current.MainPage.Navigation.PushAsync(, false);
-                    App.Current.MainPage = App.Nav;
-                    await App.Nav.PushAsync(new AppShell());
-
-                    LoadingState = "Logged in";
+                    // Go to main page
+                    App.Current.MainPage = new AppShell(); 
 
                 }
                 else
