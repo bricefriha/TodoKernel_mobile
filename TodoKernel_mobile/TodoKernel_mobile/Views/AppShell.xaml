@@ -3,13 +3,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TodoKernel_mobile.Views.AppShell" 
              xmlns:views="clr-namespace:TodoKernel_mobile.Views"
+       BackgroundColor="{StaticResource SecondaryColour }"
+       
        >
-    
+
     <FlyoutItem Title="About">
-        
+
         <ShellContent x:Name="ItemsPage"
                       ContentTemplate="{DataTemplate views:ItemsPage}" />
     </FlyoutItem>
+    <!--<FlyoutItem Title="todolist" >
+        <ShellContent x:Name="ItemsPage1"
+                      ContentTemplate="{DataTemplate views:ItemsPage}"
+                      BindableLayout.ItemsSource="{Binding Todolists}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <MenuItem Grid.Row="0" 
+                                    Text="{Binding Title}"/>
+
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+
+        </ShellContent>
+        
+        
+    </FlyoutItem>-->
+
+    <!--<MenuItem Text="Todolists" >
+        <Shell.MenuItemTemplate>
+            <DataTemplate>
+                <CollectionView ItemsSource="{Binding Todolists}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <MenuItem Text="{Binding Todolists.Title}"
+                                      />
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    
+                </CollectionView>
+            </DataTemplate>
+        </Shell.MenuItemTemplate>
+    </MenuItem>-->
     <!--<MenuItem Text="Todolists" >
         <Shell.MenuItemTemplate>
             <DataTemplate>

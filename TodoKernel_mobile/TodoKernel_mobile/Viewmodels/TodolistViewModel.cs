@@ -26,6 +26,8 @@ namespace TodoKernel_mobile.Viewmodels
         public TodolistViewModel ()
         {
             _todolists = new ObservableCollection<Todolist>();
+
+            FetchTodolist();
         }
 
         public async void FetchTodolist()

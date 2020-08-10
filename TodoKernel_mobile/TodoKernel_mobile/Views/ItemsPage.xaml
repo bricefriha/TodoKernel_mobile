@@ -1,12 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TodoKernel_mobile.Views.ItemsPage">
+             x:Class="TodoKernel_mobile.Views.ItemsPage"
+             Title="Todolists"
+             >
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="0" BackgroundColor="{StaticResource PrimaryColour}"
+                        Orientation="Horizontal">
+                <StackLayout BindableLayout.ItemsSource="{Binding Todolists}"
+                             Orientation="Horizontal">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Button Text="{Binding Title}"
+                                    BackgroundColor="{StaticResource SecondaryColour}"
+                                    TextColor="{StaticResource BackgroundColour}"
+                                    FontSize="17"
+                                    WidthRequest="150"
+                                    FontAttributes="Bold"
+                                    Padding="3"
+                                    Margin="10"
+                                    CornerRadius="15"/>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                    
+                </StackLayout>
+                
+            </ScrollView>
+            <StackLayout Grid.Row="1">
+                <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+            </StackLayout>
+        </Grid>
+        
     </ContentPage.Content>
 </ContentPage>
