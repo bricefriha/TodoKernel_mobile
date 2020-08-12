@@ -23,6 +23,34 @@ namespace TodoKernel_mobile.Viewmodels
             }
 
         }
+        private Todolist _currentTodolist;
+        public Todolist CurrentTodolist
+        {
+            set
+            {
+                _currentTodolist = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _currentTodolist;
+            }
+
+        }
+        private ObservableCollection<Item> _currentItems;
+        public ObservableCollection<Item> CurrentItems
+        {
+            set
+            {
+                _currentItems = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _currentItems;
+            }
+
+        }
         public TodolistViewModel ()
         {
             _todolists = new ObservableCollection<Todolist>();
@@ -30,6 +58,7 @@ namespace TodoKernel_mobile.Viewmodels
             FetchTodolist();
         }
 
+        // Get all todo lists
         public async void FetchTodolist()
         {
             // Set the header
@@ -40,6 +69,14 @@ namespace TodoKernel_mobile.Viewmodels
 
             // Request the server
             Todolists = await App.WsHost.ExecuteGet<ObservableCollection<Todolist>>("todolists", null, headers);
+
+            CurrentItems = new ObservableCollection<Item>();
+            _currentTodolist = new Todolist();
+
+            // Set the first todolist's items a the current items
+            //CurrentItems = Todolists[0].Items;
+            CurrentTodolist = Todolists[0];
+
         }
-    }// 0143631515
+    }
 }

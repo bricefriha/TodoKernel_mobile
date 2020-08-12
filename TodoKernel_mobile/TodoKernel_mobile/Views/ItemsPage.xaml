@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TodoKernel_mobile.Views.ItemsPage"
              Title="Todolists"
+             xmlns:renderedViews="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
+             BackgroundColor="{StaticResource BackgroundColour}"
              >
     
     <ContentPage.Content>
@@ -32,11 +34,31 @@
                 </StackLayout>
                 
             </ScrollView>
-            <StackLayout Grid.Row="1">
-                <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            </StackLayout>
+            <ScrollView Grid.Row="1">
+                <StackLayout BindableLayout.ItemsSource="{Binding CurrentTodolist.Items}">
+                    <Label Grid.Column="1"  HeightRequest="200"/>
+                    <BindableLayout.ItemTemplate >
+                        <DataTemplate>
+                            <renderedViews:MaterialFrame BackgroundColor="#E6E6E6"
+                                                         HeightRequest="15"
+                                                         CornerRadius="15"
+                                                         MaterialTheme="Acrylic"
+                                                         HasShadow="False"
+                                                         Margin="10"
+                                                                     >
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="1" Text="{Binding ItemTitle}" HeightRequest="200"/>
+                                </Grid>
+                            </renderedViews:MaterialFrame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+
+                </StackLayout>
+            </ScrollView>
         </Grid>
         
     </ContentPage.Content>

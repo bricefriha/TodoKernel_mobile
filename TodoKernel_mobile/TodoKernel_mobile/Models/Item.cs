@@ -8,9 +8,9 @@ namespace TodoKernel_mobile.Models
     public class Item
     {
         [JsonProperty("name")]
-        public string Title;
+        public string ItemTitle { get; set; }
 
         [JsonProperty("done")]
-        public string Done;
+        public string Done { get; set; }
     }
 }

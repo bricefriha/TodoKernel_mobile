@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using Newtonsoft.Json;
 
@@ -11,5 +12,7 @@ namespace TodoKernel_mobile.Models
         public string Title { get; set; }
         [JsonProperty("order")]
         public string Order { get; set; }
+        [JsonProperty("items")]
+        public ObservableCollection<Item> Items { get; set; }
     }
 }
