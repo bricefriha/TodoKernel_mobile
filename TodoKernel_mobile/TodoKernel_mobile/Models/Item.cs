@@ -11,6 +11,8 @@ namespace TodoKernel_mobile.Models
         public string ItemTitle { get; set; }
 
         [JsonProperty("done")]
-        public string Done { get; set; }
+        public bool Done { get; set; }
+        public string CheckIcon { get; set; }
     }
+
 }

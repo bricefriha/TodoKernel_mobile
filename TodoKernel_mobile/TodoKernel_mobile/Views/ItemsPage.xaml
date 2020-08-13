@@ -3,10 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TodoKernel_mobile.Views.ItemsPage"
              Title="Todolists"
+             xmlns:Helpers="clr-namespace:TodoKernel_mobile.Helpers"
              xmlns:renderedViews="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              BackgroundColor="{StaticResource BackgroundColour}"
              >
-    
+    <ContentPage.Resources>
+        <Helpers:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -51,6 +54,9 @@
                                         <ColumnDefinition Width="20"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="&#xf111;" FontFamily="{DynamicResource FA-Regular}" IsVisible="{Binding Done}" />
+
+                                    <Label Grid.Column="0" Text="&#xf058;" FontFamily="{DynamicResource FA-Solid}" IsVisible="{Binding Done, Converter={StaticResource InverseBooleanConverter}}" />
                                     <Label Grid.Column="1" Text="{Binding ItemTitle}" HeightRequest="200"/>
                                 </Grid>
                             </renderedViews:MaterialFrame>

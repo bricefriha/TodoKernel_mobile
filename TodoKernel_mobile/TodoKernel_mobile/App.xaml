@@ -1,16 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="TodoKernel_mobile.App" >
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                mc:Ignorable="d"
+                x:Class="TodoKernel_mobile.App" >
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="PrimaryColour">#005AFF</Color>
             <Color x:Key="SecondaryColour">#FFA500</Color>
             <Color x:Key="FontColour">#1a1a1a</Color>
             <Color x:Key="BackgroundColour">#F1F1F1</Color>
+            <!-- Font Awesome -->
+            <OnPlatform x:TypeArguments="x:String" x:Key="FA-Regular">
+                <On Platform="Android" Value="Font Awesome 5 Free-Regular-400.otf" />
+                <On Platform="UWP" Value="/Assets/Font Awesome 5 Free-Regular-400.otf#Font Awesome 5 Free" />
+                <On Platform="iOS" Value="Font Awesome 5 Free" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="FA-Brands">
+                <On Platform="Android" Value="Font Awesome 5 Brands-Regular-400.otf" />
+                <On Platform="UWP" Value="/Assets/Font Awesome 5 Brands-Regular-400.otf#Font Awesome 5 Brands" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="FA-Solid">
+                <On Platform="Android" Value="Font Awesome 5 Free-Solid-900.otf" />
+                <On Platform="UWP" Value="Assets/Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free" />
+                <On Platform="iOS" Value="Font Awesome 5 Free Solid" />
+            </OnPlatform>
         </ResourceDictionary>
+        
     </Application.Resources>
 </Application>
