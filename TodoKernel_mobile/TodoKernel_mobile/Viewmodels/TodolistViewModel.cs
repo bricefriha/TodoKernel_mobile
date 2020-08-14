@@ -71,7 +71,7 @@ namespace TodoKernel_mobile.Viewmodels
                 headers.Add("Authorization", "Bearer " + App.UserSession.Token);
 
                 // define the body
-                string body = " { \"todolistId\": \"" + id + " } ";
+                string body = " { \"todolistId\": \"" + id + "\" } ";
 
                 CurrentItems = await App.WsHost.ExecuteGet<ObservableCollection<Item>>("todos", "get", headers, body);
             });

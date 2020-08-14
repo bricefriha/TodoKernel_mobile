@@ -4,8 +4,10 @@
              x:Class="TodoKernel_mobile.Views.ItemsPage"
              Title="Todolists"
              xmlns:Helpers="clr-namespace:TodoKernel_mobile.Helpers"
+             xmlns:viewmodels="clr-namespace:TodoKernel_mobile.Viewmodels"
              xmlns:renderedViews="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              BackgroundColor="{StaticResource BackgroundColour}"
+             x:Name="page"
              >
     <ContentPage.Resources>
         <Helpers:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
@@ -31,7 +33,7 @@
                                     Padding="3"
                                     Margin="10"
                                     CornerRadius="15"
-                                    Command="{Binding SwitchTodolist, Source=.}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TodolistViewModel}}, Path=SwitchTodolist}"
                                     CommandParameter="{Binding Id}"/>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
