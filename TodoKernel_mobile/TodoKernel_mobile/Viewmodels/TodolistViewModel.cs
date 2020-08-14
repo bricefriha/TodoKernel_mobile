@@ -51,10 +51,30 @@ namespace TodoKernel_mobile.Viewmodels
             }
 
         }
+        private Xamarin.Forms.Command _switchTodolist;
+        public Xamarin.Forms.Command SwitchTodolist
+        {
+
+            get
+            {
+                return _switchTodolist;
+            }
+        }
         public TodolistViewModel ()
         {
             _todolists = new ObservableCollection<Todolist>();
 
+            _switchTodolist = new Xamarin.Forms.Command(async (id) => {
+                // Set the header
+                IDictionary<string, string> headers = new Dictionary<string, string>();
+                // Fetch the user token
+                headers.Add("Authorization", "Bearer " + App.userSession.Token);
+
+                // define the body
+                string body = " { \"todolistId\": \"" + id + " } ";
+
+                CurrentItems = await App.WsHost.ExecuteGet<ObservableCollection<Item>>("todos", "get", headers, body);
+            });
             FetchTodolist();
         }
 
@@ -74,8 +94,8 @@ namespace TodoKernel_mobile.Viewmodels
             _currentTodolist = new Todolist();
 
             // Set the first todolist's items a the current items
-            //CurrentItems = Todolists[0].Items;
-            CurrentTodolist = Todolists[0];
+            CurrentItems = Todolists[0].Items;
+            //CurrentTodolist = Todolists[0];
 
         }
     }

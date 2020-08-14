@@ -30,7 +30,9 @@
                                     FontAttributes="Bold"
                                     Padding="3"
                                     Margin="10"
-                                    CornerRadius="15"/>
+                                    CornerRadius="15"
+                                    Command="{Binding SwitchTodolist, Source=.}"
+                                    CommandParameter="{Binding Id}"/>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                     
@@ -38,7 +40,7 @@
                 
             </ScrollView>
             <ScrollView Grid.Row="1">
-                <StackLayout BindableLayout.ItemsSource="{Binding CurrentTodolist.Items}">
+                <StackLayout BindableLayout.ItemsSource="{Binding CurrentItems}">
                     <Label Grid.Column="1"  HeightRequest="200"/>
                     <BindableLayout.ItemTemplate >
                         <DataTemplate>

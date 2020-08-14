@@ -19,7 +19,7 @@
                     <magic:GradientCollection>
                         <magic:LinearGradient Angle="50">
                             <magic:GradientStop Color="{StaticResource SecondaryColour}" Offset="0.2"  />
-                            <magic:GradientStop Color="{StaticResource BackgroundColour}" Offset="1" />
+                            <magic:GradientStop Color="{StaticResource LightColour}" Offset="1" />
                         </magic:LinearGradient>
                     </magic:GradientCollection>
                 </magic:GradientView.GradientSource>

@@ -8,6 +8,8 @@ namespace TodoKernel_mobile.Models
 {
     public class Todolist
     {
+        [JsonProperty("_id")]
+        public string Id { get; set; }
         [JsonProperty("title")]
         public string Title { get; set; }
         [JsonProperty("order")]
