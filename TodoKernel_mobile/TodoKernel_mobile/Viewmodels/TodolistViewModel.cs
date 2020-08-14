@@ -68,7 +68,7 @@ namespace TodoKernel_mobile.Viewmodels
                 // Set the header
                 IDictionary<string, string> headers = new Dictionary<string, string>();
                 // Fetch the user token
-                headers.Add("Authorization", "Bearer " + App.userSession.Token);
+                headers.Add("Authorization", "Bearer " + App.UserSession.Token);
 
                 // define the body
                 string body = " { \"todolistId\": \"" + id + " } ";
@@ -85,7 +85,7 @@ namespace TodoKernel_mobile.Viewmodels
             IDictionary<string, string> headers = new Dictionary<string, string>();
 
             // Fetch the user token
-            headers.Add("Authorization", "Bearer " + App.userSession.Token);
+            headers.Add("Authorization", "Bearer " + App.UserSession.Token);
 
             // Request the server
             Todolists = await App.WsHost.ExecuteGet<ObservableCollection<Todolist>>("todolists", null, headers);

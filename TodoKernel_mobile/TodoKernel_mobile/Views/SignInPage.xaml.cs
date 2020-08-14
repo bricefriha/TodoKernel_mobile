@@ -33,7 +33,7 @@ namespace TodoKernel_mobile.Views
             //App.userSession = await _vm.LogIn(); 
 
             // If the user as been identified
-            if (App.userSession != null)
+            if (App.UserSession != null)
             {
                 // Navigate to the main page
                 //await this.Navigation.PushAsync(new AppShell());

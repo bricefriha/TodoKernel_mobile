@@ -79,12 +79,16 @@ namespace TodoKernel_mobile.Viewmodels
                     body = " { \"username\": \"" + Login + "\", \"password\": \"" + Password + "\" } ";
 
                 // Execute the request
-                App.userSession = await App.WsHost.ExecutePost<User>("users", "authenticate", null, body);
+                App.UserSession = await App.WsHost.ExecutePost<User>("users", "authenticate", null, body);
 
-                if (App.userSession != null)
+                if (App.UserSession != null)
                 {
                     // Go to main page
-                    App.Current.MainPage = new AppShell(); 
+                    App.Current.MainPage = new AppShell();
+
+                    // Store the token
+                    await SecureStorage.SetAsync("oauth_token", App.UserSession.Token);
+
 
                 }
                 else
