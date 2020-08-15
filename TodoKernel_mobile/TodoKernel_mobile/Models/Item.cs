@@ -7,12 +7,13 @@ namespace TodoKernel_mobile.Models
 {
     public class Item
     {
+        [JsonProperty("_id")]
+        public string Id { get; set; }
         [JsonProperty("name")]
         public string ItemTitle { get; set; }
 
         [JsonProperty("done")]
         public bool Done { get; set; }
-        public string CheckIcon { get; set; }
     }
 
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using MvvmHelpers;
 using TodoKernel_mobile.Models;
@@ -60,6 +61,15 @@ namespace TodoKernel_mobile.Viewmodels
                 return _switchTodolist;
             }
         }
+        private Xamarin.Forms.Command _tickItem;
+        public Xamarin.Forms.Command TickItem
+        {
+
+            get
+            {
+                return _tickItem;
+            }
+        }
         public TodolistViewModel ()
         {
             _todolists = new ObservableCollection<Todolist>();
@@ -75,6 +85,29 @@ namespace TodoKernel_mobile.Viewmodels
 
                 CurrentItems = await App.WsHost.ExecuteGet<ObservableCollection<Item>>("todos", "get", headers, body);
             });
+
+            _tickItem = new Xamarin.Forms.Command(async (id) => {
+
+                // Get the selected item
+                Item item = CurrentItems.Where<Item>(item => item.Id == id.ToString()).FirstOrDefault();
+
+                // Set the header
+                IDictionary<string, string> headers = new Dictionary<string, string>();
+                // Fetch the user token
+                headers.Add("Authorization", "Bearer " + App.UserSession.Token);
+
+                // Set paraeters
+                string[] parameters = { id.ToString() };
+
+                // Check it in the data base
+                await App.WsHost.ExecutePut("todos", "check", headers, null, parameters);
+
+                // Switch the boolean attribute of Done
+                item.Done = !item.Done;
+                CurrentItems[CurrentItems.IndexOf(item)] = item;
+            });
+
+            // Fetch all the todolists
             FetchTodolist();
         }
 

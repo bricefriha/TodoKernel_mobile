@@ -76,16 +76,29 @@
                                            FontFamily="{DynamicResource FA-Solid}" 
                                            IsVisible="{Binding Done}" 
                                            FontSize="{StaticResource TickBoxSize}"
-                                           TextColor="#329932"/>
-                                    
+                                           TextColor="#329932"
+                                           >
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TodolistViewModel}}, Path=TickItem}"
+                                                                  CommandParameter="{Binding Id}"/>
+
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
                                     <!--When it's empty-->
                                     <Label Grid.Column="0" 
                                            Text="&#xf111;" 
                                            FontFamily="{DynamicResource FA-Regular}" 
                                            IsVisible="{Binding Done, Converter={StaticResource InverseBooleanConverter}}" 
                                            TextColor="{StaticResource FontColour}"
-                                           FontSize="{StaticResource TickBoxSize}"/>
-                                    
+                                           FontSize="{StaticResource TickBoxSize}">
+                                        <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TodolistViewModel}}, Path=TickItem}"
+                                                                  CommandParameter="{Binding Id}"/>
+
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
                                     <!-- Title of the item-->
                                     <Label Grid.Column="1" 
                                            Text="{Binding ItemTitle}"
