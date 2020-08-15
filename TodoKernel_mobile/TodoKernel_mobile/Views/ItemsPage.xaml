@@ -19,23 +19,25 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="70"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <ScrollView Grid.Row="0" BackgroundColor="{StaticResource PrimaryColour}"
-                        Orientation="Horizontal">
+            <ScrollView Grid.Row="0" BackgroundColor="#E6E6E6"
+                        Orientation="Horizontal"
+                       >
                 <StackLayout BindableLayout.ItemsSource="{Binding Todolists}"
-                             Orientation="Horizontal">
+                             Orientation="Horizontal"
+                             Spacing="15"
+                             Margin="10,0,0,0">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <Button Text="{Binding Title}"
-                                    BackgroundColor="{StaticResource SecondaryColour}"
+                                    BackgroundColor="{StaticResource PrimaryColour}"
                                     TextColor="{StaticResource BackgroundColour}"
                                     FontSize="17"
-                                    WidthRequest="150"
                                     FontAttributes="Bold"
-                                    Padding="3"
-                                    Margin="10"
+                                    Padding="10"
+                                    Margin="0,14,0,14"
                                     CornerRadius="15"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TodolistViewModel}}, Path=SwitchTodolist}"
                                     CommandParameter="{Binding Id}"/>
@@ -50,7 +52,8 @@
                     <Label Grid.Column="1" HeightRequest="200"/>
                     <BindableLayout.ItemTemplate >
                         <DataTemplate>
-                            <renderedViews:MaterialFrame BackgroundColor="#E6E6E6"
+                            <renderedViews:MaterialFrame BackgroundColor="{StaticResource BackgroundColour}"
+                                                         Elevation="0"
                                                          HeightRequest="60"
                                                          WidthRequest="350"
                                                          HorizontalOptions="Center"
@@ -58,8 +61,7 @@
                                                          MaterialTheme="Acrylic"
                                                          HasShadow="False"
                                                          Padding="0"
-                                                         Margin="0"
-                                                                     >
+                                                         Margin="0">
                                 <Grid Margin="20,15,0,0"
                                       VerticalOptions="CenterAndExpand"
                                       HeightRequest="50">
