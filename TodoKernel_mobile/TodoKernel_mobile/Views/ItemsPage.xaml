@@ -11,6 +11,10 @@
              >
     <ContentPage.Resources>
         <Helpers:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        <ResourceDictionary>
+            <x:Double x:Key="ItemFontSize">20</x:Double>
+            <x:Double x:Key="TickBoxSize">30</x:Double>
+        </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
@@ -37,31 +41,56 @@
                                     CommandParameter="{Binding Id}"/>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
-                    
                 </StackLayout>
-                
             </ScrollView>
             <ScrollView Grid.Row="1">
-                <StackLayout BindableLayout.ItemsSource="{Binding CurrentItems}">
-                    <Label Grid.Column="1"  HeightRequest="200"/>
+                <StackLayout BindableLayout.ItemsSource="{Binding CurrentItems}"
+                             Margin="0,20,0,0"
+                             Spacing="20">
+                    <Label Grid.Column="1" HeightRequest="200"/>
                     <BindableLayout.ItemTemplate >
                         <DataTemplate>
                             <renderedViews:MaterialFrame BackgroundColor="#E6E6E6"
-                                                         HeightRequest="15"
+                                                         HeightRequest="60"
+                                                         WidthRequest="350"
+                                                         HorizontalOptions="Center"
                                                          CornerRadius="15"
                                                          MaterialTheme="Acrylic"
                                                          HasShadow="False"
-                                                         Margin="10"
+                                                         Padding="0"
+                                                         Margin="0"
                                                                      >
-                                <Grid>
+                                <Grid Margin="20,15,0,0"
+                                      VerticalOptions="CenterAndExpand"
+                                      HeightRequest="50">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="0" Text="&#xf111;" FontFamily="{DynamicResource FA-Regular}" IsVisible="{Binding Done}" />
-
-                                    <Label Grid.Column="0" Text="&#xf058;" FontFamily="{DynamicResource FA-Solid}" IsVisible="{Binding Done, Converter={StaticResource InverseBooleanConverter}}" />
-                                    <Label Grid.Column="1" Text="{Binding ItemTitle}" HeightRequest="200"/>
+                                    
+                                    <!--When it's tick-->
+                                    <Label Grid.Column="0"  
+                                           Text="&#xf058;" 
+                                           FontFamily="{DynamicResource FA-Solid}" 
+                                           IsVisible="{Binding Done}" 
+                                           FontSize="{StaticResource TickBoxSize}"
+                                           TextColor="#329932"/>
+                                    
+                                    <!--When it's empty-->
+                                    <Label Grid.Column="0" 
+                                           Text="&#xf111;" 
+                                           FontFamily="{DynamicResource FA-Regular}" 
+                                           IsVisible="{Binding Done, Converter={StaticResource InverseBooleanConverter}}" 
+                                           TextColor="{StaticResource FontColour}"
+                                           FontSize="{StaticResource TickBoxSize}"/>
+                                    
+                                    <!-- Title of the item-->
+                                    <Label Grid.Column="1" 
+                                           Text="{Binding ItemTitle}"
+                                           HeightRequest="200" 
+                                           VerticalOptions="Start"
+                                           FontSize="{StaticResource ItemFontSize}"
+                                           TextColor="{StaticResource FontColour}"/>
                                 </Grid>
                             </renderedViews:MaterialFrame>
                         </DataTemplate>

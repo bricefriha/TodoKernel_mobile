@@ -13,22 +13,23 @@
             <Color x:Key="LightColour">#FFE2AE</Color>
             <Color x:Key="FontColour">#1a1a1a</Color>
             <Color x:Key="BackgroundColour">#F1F1F1</Color>
-            <!-- Font Awesome -->
-            <OnPlatform x:TypeArguments="x:String" x:Key="FA-Regular">
-                <On Platform="Android" Value="Font Awesome 5 Free-Regular-400.otf" />
-                <On Platform="UWP" Value="/Assets/Font Awesome 5 Free-Regular-400.otf#Font Awesome 5 Free" />
-                <On Platform="iOS" Value="Font Awesome 5 Free" />
-            </OnPlatform>
-            <OnPlatform x:TypeArguments="x:String" x:Key="FA-Brands">
-                <On Platform="Android" Value="Font Awesome 5 Brands-Regular-400.otf" />
-                <On Platform="UWP" Value="/Assets/Font Awesome 5 Brands-Regular-400.otf#Font Awesome 5 Brands" />
-            </OnPlatform>
-            <OnPlatform x:TypeArguments="x:String" x:Key="FA-Solid">
-                <On Platform="Android" Value="Font Awesome 5 Free-Solid-900.otf" />
-                <On Platform="UWP" Value="Assets/Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free" />
-                <On Platform="iOS" Value="Font Awesome 5 Free Solid" />
-            </OnPlatform>
+            
         </ResourceDictionary>
-        
+        <!-- Font Awesome -->
+        <OnPlatform x:TypeArguments="x:String" x:Key="FA-Regular">
+            <On Platform="Android" Value="Font Awesome 5 Free-Regular-400.otf#Font Awesome 5 Free" />
+            <On Platform="UWP" Value="/Assets/Font Awesome 5 Free-Regular-400.otf#Font Awesome 5 Free" />
+            <On Platform="iOS" Value="Font Awesome 5 Free" />
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="FA-Brands">
+            <On Platform="Android" Value="Font Awesome 5 Brands-Regular-400.otf#Font Awesome 5 Brands Regular" />
+            <On Platform="UWP" Value="/Assets/Font Awesome 5 Brands-Regular-400.otf#Font Awesome 5 Brands" />
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="FA-Solid">
+            <On Platform="Android" Value="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" />
+            <On Platform="UWP" Value="Assets/Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free" />
+            <On Platform="iOS" Value="Font Awesome 5 Free Solid" />
+        </OnPlatform>
+
     </Application.Resources>
 </Application>
