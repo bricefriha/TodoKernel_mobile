@@ -6,7 +6,8 @@
              xmlns:Helpers="clr-namespace:TodoKernel_mobile.Helpers"
              xmlns:viewmodels="clr-namespace:TodoKernel_mobile.Viewmodels"
              xmlns:renderedViews="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
-             BackgroundColor="{StaticResource BackgroundColour}"
+             Shell.BackgroundColor="{StaticResource SecondaryColour }"
+             BackgroundColor="{StaticResource BackgroundColour }"
              x:Name="page"
              >
     <ContentPage.Resources>
