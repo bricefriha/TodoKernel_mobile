@@ -118,6 +118,23 @@
 
                 </StackLayout>
             </ScrollView>
+            <!-- Button to open the form to add a new item-->
+            <Button BackgroundColor="{StaticResource SecondaryColour}"
+                    Grid.Row="1"
+                    HeightRequest="75"
+                    WidthRequest="75"
+                    HorizontalOptions="End"
+                    VerticalOptions="End"
+                    CornerRadius="100"
+                    Text="&#xf067;" 
+                    FontFamily="{DynamicResource FA-Solid}" 
+                    IsVisible="{Binding Done, Converter={StaticResource InverseBooleanConverter}}" 
+                    TextColor="{StaticResource BackgroundColour}"
+                    FontSize="{StaticResource TickBoxSize}"
+                    Padding="0"
+                    Margin="20">
+
+            </Button>
         </Grid>
         
     </ContentPage.Content>
