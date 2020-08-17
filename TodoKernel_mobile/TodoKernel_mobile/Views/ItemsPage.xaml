@@ -6,6 +6,7 @@
              xmlns:Helpers="clr-namespace:TodoKernel_mobile.Helpers"
              xmlns:viewmodels="clr-namespace:TodoKernel_mobile.Viewmodels"
              xmlns:renderedViews="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
+             xmlns:steven="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              Shell.BackgroundColor="{StaticResource SecondaryColour }"
              BackgroundColor="{StaticResource BackgroundColour }"
              x:Name="page"
@@ -132,9 +133,31 @@
                     TextColor="{StaticResource BackgroundColour}"
                     FontSize="{StaticResource TickBoxSize}"
                     Padding="0"
-                    Margin="20">
-
-            </Button>
+                    Margin="20"
+                    Clicked="Open_Form"/>
+            <!-- form to add a new item -->
+            <steven:PancakeView x:Name="AddItemForm"
+                    BackgroundColor="White"
+                    Grid.Row="1"
+                    HeightRequest="0"
+                    BorderThickness="1"
+                    WidthRequest="350"
+                    VerticalOptions="EndAndExpand"
+                    CornerRadius="30,30,0,0"
+                    HasShadow="True"
+                    Padding="0"
+                                
+                    Margin="0">
+                <!-- Resize bar-->
+                <BoxView HeightRequest="2"  
+                         Margin="0,10,0,0" 
+                         VerticalOptions="Start" 
+                         HorizontalOptions="CenterAndExpand" 
+                         BackgroundColor="{StaticResource FontColour}" 
+                         WidthRequest="90"/>
+                
+            </steven:PancakeView>
+            
         </Grid>
         
     </ContentPage.Content>
