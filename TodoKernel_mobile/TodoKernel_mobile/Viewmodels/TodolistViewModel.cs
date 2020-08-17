@@ -31,6 +31,10 @@ namespace TodoKernel_mobile.Viewmodels
             {
                 _currentTodolist = value;
                 OnPropertyChanged();
+
+                // Execute the command
+                SwitchTodolist.Execute(CurrentTodolist.Id);
+
             }
             get
             {
@@ -127,8 +131,9 @@ namespace TodoKernel_mobile.Viewmodels
             _currentTodolist = new Todolist();
 
             // Set the first todolist's items a the current items
-            CurrentItems = Todolists[0].Items;
-            //CurrentTodolist = Todolists[0];
+            CurrentTodolist = Todolists[0];
+
+            CurrentItems = CurrentTodolist.Items;
 
         }
     }

@@ -23,29 +23,33 @@
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <ScrollView Grid.Row="0" BackgroundColor="#E6E6E6"
-                        Orientation="Horizontal"
-                       >
-                <StackLayout BindableLayout.ItemsSource="{Binding Todolists}"
-                             Orientation="Horizontal"
-                             Spacing="15"
-                             Margin="10,0,0,0">
-                    <BindableLayout.ItemTemplate>
-                        <DataTemplate>
-                            <Button Text="{Binding Title}"
-                                    BackgroundColor="{StaticResource PrimaryColour}"
-                                    TextColor="{StaticResource BackgroundColour}"
-                                    FontSize="17"
-                                    FontAttributes="Bold"
-                                    Padding="10"
-                                    Margin="0,14,0,14"
-                                    CornerRadius="15"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TodolistViewModel}}, Path=SwitchTodolist}"
-                                    CommandParameter="{Binding Id}"/>
-                        </DataTemplate>
-                    </BindableLayout.ItemTemplate>
-                </StackLayout>
-            </ScrollView>
+            <!-- Backgroun of the header -->
+            <BoxView Grid.Row="0" BackgroundColor="#E6E6E6"
+                     CornerRadius="0,0,20,20"
+                     Margin="10,0,10,0"/>
+            <StackLayout Grid.Row="0" 
+                         Orientation="Horizontal"
+                        HorizontalOptions="CenterAndExpand">
+                <!-- The picker to select the todolist-->
+                <Picker  
+                        ItemsSource="{Binding Todolists}" 
+                        ItemDisplayBinding="{Binding Title}"
+                        TextColor="{StaticResource FontColour}"
+                        SelectedItem="{Binding CurrentTodolist}"
+                        FontSize="25"
+                        WidthRequest="200"
+                    
+                    >
+                </Picker>
+                <!-- list icon -->
+                <Label  
+                        Text="&#xf46d;" 
+                        FontFamily="{DynamicResource FA-Solid}" 
+                        FontSize="40"
+                        TextColor="{StaticResource PrimaryColour}"
+                        VerticalOptions="Center"
+                        />
+            </StackLayout>
             <ScrollView Grid.Row="1">
                 <StackLayout BindableLayout.ItemsSource="{Binding CurrentItems}"
                              Margin="0,20,0,0"
