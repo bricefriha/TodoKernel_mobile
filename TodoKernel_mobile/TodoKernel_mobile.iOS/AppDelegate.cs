@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace TodoKernel_mobile.iOS
 {
@@ -22,6 +23,7 @@ namespace TodoKernel_mobile.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Forms.SetFlags("SwipeView_Experimental");
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

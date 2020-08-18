@@ -65,62 +65,74 @@
                     <Label Grid.Column="1" HeightRequest="200"/>
                     <BindableLayout.ItemTemplate >
                         <DataTemplate>
-                            <renderedViews:MaterialFrame BackgroundColor="{StaticResource BackgroundColour}"
-                                                         Elevation="0"
-                                                         HeightRequest="60"
-                                                         WidthRequest="350"
-                                                         HorizontalOptions="Center"
-                                                         CornerRadius="15"
-                                                         MaterialTheme="Acrylic"
-                                                         HasShadow="False"
-                                                         Padding="0"
-                                                         Margin="0">
-                                <Grid Margin="20,15,0,0"
-                                      VerticalOptions="CenterAndExpand"
-                                      HeightRequest="50">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="40"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    
-                                    <!--When it's tick-->
-                                    <Label Grid.Column="0"  
-                                           Text="&#xf058;" 
-                                           FontFamily="{DynamicResource FA-Solid}" 
-                                           IsVisible="{Binding Done}" 
-                                           FontSize="{StaticResource TickBoxSize}"
-                                           TextColor="#329932"
-                                           >
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TodolistViewModel}}, Path=TickItem}"
-                                                                  CommandParameter="{Binding Id}"/>
+                            <SwipeView HorizontalOptions="CenterAndExpand"
+                                       Margin="0">
+                                <Grid BackgroundColor="{StaticResource BackgroundColour }"
+                                      HorizontalOptions="Center">
+                                    <renderedViews:MaterialFrame BackgroundColor="{StaticResource BackgroundColour}"
+                                                             Elevation="0"
+                                                             CornerRadius="15"
+                                                             HeightRequest="60"
+                                                                WidthRequest="350"
+                                                             MaterialTheme="Acrylic"
+                                                                 Margin="20,5,20,5"
+                                                             HasShadow="False"
+                                                             Padding="0">
+                                        <Grid Margin="20,15,0,0"
+                                          VerticalOptions="CenterAndExpand"
+                                          HeightRequest="50">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="40"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
 
-                                        </Label.GestureRecognizers>
-                                    </Label>
+                                            <!--When it's tick-->
+                                            <Label Grid.Column="0"  
+                                               Text="&#xf058;" 
+                                               FontFamily="{DynamicResource FA-Solid}" 
+                                               IsVisible="{Binding Done}" 
+                                               FontSize="{StaticResource TickBoxSize}"
+                                               TextColor="#329932"
+                                               >
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TodolistViewModel}}, Path=TickItem}"
+                                                                      CommandParameter="{Binding Id}"/>
 
-                                    <!--When it's empty-->
-                                    <Label Grid.Column="0" 
-                                           Text="&#xf111;" 
-                                           FontFamily="{DynamicResource FA-Regular}" 
-                                           IsVisible="{Binding Done, Converter={StaticResource InverseBooleanConverter}}" 
-                                           TextColor="{StaticResource FontColour}"
-                                           FontSize="{StaticResource TickBoxSize}">
-                                        <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TodolistViewModel}}, Path=TickItem}"
-                                                                  CommandParameter="{Binding Id}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
-                                        </Label.GestureRecognizers>
-                                    </Label>
+                                            <!--When it's empty-->
+                                            <Label Grid.Column="0" 
+                                               Text="&#xf111;" 
+                                               FontFamily="{DynamicResource FA-Regular}" 
+                                               IsVisible="{Binding Done, Converter={StaticResource InverseBooleanConverter}}" 
+                                               TextColor="{StaticResource FontColour}"
+                                               FontSize="{StaticResource TickBoxSize}">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TodolistViewModel}}, Path=TickItem}"
+                                                                      CommandParameter="{Binding Id}"/>
 
-                                    <!-- Title of the item-->
-                                    <Label Grid.Column="1" 
-                                           Text="{Binding ItemTitle}"
-                                           HeightRequest="200" 
-                                           VerticalOptions="Start"
-                                           FontSize="{StaticResource ItemFontSize}"
-                                           TextColor="{StaticResource FontColour}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+
+                                            <!-- Title of the item-->
+                                            <Label Grid.Column="1" 
+                                               Text="{Binding ItemTitle}"
+                                               HeightRequest="200" 
+                                               VerticalOptions="Start"
+                                               FontSize="{StaticResource ItemFontSize}"
+                                               TextColor="{StaticResource FontColour}"/>
+                                        </Grid>
+                                    </renderedViews:MaterialFrame>
                                 </Grid>
-                            </renderedViews:MaterialFrame>
+                                
+                                <SwipeView.RightItems>
+                                    <SwipeItems Mode="Execute">
+                                        <SwipeItem Text="Remove"
+                                                    BackgroundColor="Red"/>
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                            </SwipeView>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
 

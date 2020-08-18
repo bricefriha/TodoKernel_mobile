@@ -9,7 +9,6 @@ using TodoKernel_mobile.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 namespace TodoKernel_mobile
 {
     public partial class App : Application
