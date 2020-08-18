@@ -39,18 +39,31 @@ namespace TodoKernel_mobile.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Body_Tapped(object sender, EventArgs e)
+        private void Hide_Form(object sender, EventArgs e)
         {
             if (AddItemForm.Height > 0)
             {
-                Action<double> callback = input => AddItemForm.HeightRequest = input;
-                double startHeight = 120;
-                double endiendHeight = 0;
-                uint rate = 32;
-                uint length = 500;
-                Easing easing = Easing.SinOut;
-                AddItemForm.Animate("anim", callback, startHeight, endiendHeight, rate, length, easing);
+                // hide the bottom slide bar
+                HideBottomSlideBar();
             }
+        }
+        /// <summary>
+        /// Method to hide the bottom slide bar
+        /// </summary>
+        private void HideBottomSlideBar()
+        {
+            Action<double> callback = input => AddItemForm.HeightRequest = input;
+            double startHeight = 120;
+            double endiendHeight = 0;
+            uint rate = 32;
+            uint length = 500;
+            Easing easing = Easing.SinOut;
+            AddItemForm.Animate("anim", callback, startHeight, endiendHeight, rate, length, easing);
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -59,7 +59,7 @@
                              Margin="0,20,0,0"
                              Spacing="20">
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Body_Tapped"/>
+                        <TapGestureRecognizer Tapped="Hide_Form"/>
                     </StackLayout.GestureRecognizers>
                     <Label Grid.Column="1" HeightRequest="200"/>
                     <BindableLayout.ItemTemplate >
@@ -189,19 +189,23 @@
                         <!-- Entry -->
                         <Entry Grid.Column="1"
                                VerticalOptions="Start"
-                               HorizontalOptions="Fill"/>
+                               HorizontalOptions="Fill"
+                               Text="{Binding FormTitle}"
+                               />
                         <Button 
-                            Grid.Column="2"
-                            Text="&#xf067;" 
-                            FontFamily="{DynamicResource FA-Solid}" 
-                            IsVisible="{Binding Done, Converter={StaticResource InverseBooleanConverter}}" 
-                            TextColor="{StaticResource BackgroundColour}"
-                            BackgroundColor="{StaticResource PrimaryColour}"
-                            VerticalOptions="CenterAndExpand"
-                            HorizontalOptions="CenterAndExpand"
-                            WidthRequest="40"
-                            HeightRequest="40"
-                            CornerRadius="10"
+                                Grid.Column="2"
+                                Text="&#xf067;" 
+                                FontFamily="{DynamicResource FA-Solid}" 
+                                IsVisible="{Binding Done, Converter={StaticResource InverseBooleanConverter}}" 
+                                TextColor="{StaticResource BackgroundColour}"
+                                BackgroundColor="{StaticResource PrimaryColour}"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"
+                                Command="{Binding AddItem}"
+                                WidthRequest="40"
+                                HeightRequest="40"
+                                CornerRadius="10"
+                                Clicked="Hide_Form"
                             
                             />
                     </Grid>

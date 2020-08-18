@@ -10,6 +10,19 @@ namespace TodoKernel_mobile.Viewmodels
 {
     public class TodolistViewModel : BaseViewModel
     {
+        private string _formTitle;
+        public string FormTitle
+        {
+            set
+            {
+                _formTitle = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _formTitle;
+            }
+        }
         private ObservableCollection<Todolist> _todolists;
         public ObservableCollection<Todolist> Todolists
         {
@@ -65,6 +78,15 @@ namespace TodoKernel_mobile.Viewmodels
                 return _switchTodolist;
             }
         }
+        private Xamarin.Forms.Command _addItem;
+        public Xamarin.Forms.Command AddItem
+        {
+
+            get
+            {
+                return _addItem;
+            }
+        }
         private Xamarin.Forms.Command _tickItem;
         public Xamarin.Forms.Command TickItem
         {
@@ -109,6 +131,29 @@ namespace TodoKernel_mobile.Viewmodels
                 // Switch the boolean attribute of Done
                 item.Done = !item.Done;
                 CurrentItems[CurrentItems.IndexOf(item)] = item;
+            });
+
+            _addItem = new Xamarin.Forms.Command(async () =>
+            {
+                // Set the header
+                IDictionary<string, string> headers = new Dictionary<string, string>();
+                // Fetch the user token
+                headers.Add("Authorization", "Bearer " + App.UserSession.Token);
+
+                // define the body
+                string body = " { \"todolistId\": \"" + FormTitle + "\",\"todolistId\": \"" + CurrentTodolist.Id + "\" } ";
+
+                // Check it in the data base
+                await App.WsHost.ExecutePost("todos", "add", headers, null);
+
+                // Add to the current item
+                CurrentItems.Add(new Item
+                {
+                    ItemTitle = FormTitle
+                });
+
+                // Empty the form
+                FormTitle = string.Empty;
             });
 
             // Fetch all the todolists
