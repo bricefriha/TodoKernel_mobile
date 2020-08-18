@@ -28,27 +28,29 @@ namespace TodoKernel_mobile.Views
             // Annimation
             Action<double> callback = input => AddItemForm.HeightRequest = input;
             double startHeight = 0;
-            double endHeight = mainDisplayInfo.Height / 15;
+            double endHeight = 120;//mainDisplayInfo.Height / 20;
             uint rate = 32;
             uint length = 500;
-            Easing easing = Easing.CubicOut;
+            Easing easing = Easing.SinOut;
             AddItemForm.Animate("anim", callback, startHeight, endHeight, rate, length, easing);
-
-            //
-            //if (MyDraggableView.Height == 0)
-            //{
-            //}
-            //else
-            //{
-            //    Action<double> callback = input => MyDraggableView.HeightRequest = input;
-            //    double startHeight = mainDisplayInfo.Height / 3;
-            //    double endiendHeight = 0;
-            //    uint rate = 32;
-            //    uint length = 500;
-            //    Easing easing = Easing.SinOut;
-            //    MyDraggableView.Animate("anim", callback, startHeight, endiendHeight, rate, length, easing);
-
-            //}
+        }
+        /// <summary>
+        ///  event if the user tap in the body
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Body_Tapped(object sender, EventArgs e)
+        {
+            if (AddItemForm.Height > 0)
+            {
+                Action<double> callback = input => AddItemForm.HeightRequest = input;
+                double startHeight = 120;
+                double endiendHeight = 0;
+                uint rate = 32;
+                uint length = 500;
+                Easing easing = Easing.SinOut;
+                AddItemForm.Animate("anim", callback, startHeight, endiendHeight, rate, length, easing);
+            }
         }
     }
 }
