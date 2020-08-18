@@ -25,9 +25,10 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <!-- Backgroun of the header -->
-            <steven:PancakeView Grid.Row="0" BackgroundColor="#E6E6E6"
-                                 CornerRadius="0,0,20,20"
-                                 Margin="10,0,10,0"
+            <steven:PancakeView Grid.Row="0" 
+                                BackgroundColor="#E6E6E6"
+                                CornerRadius="0,0,20,20"
+                                Margin="10,0,10,0"
                                 HasShadow="True">
                 <StackLayout Grid.Row="0" 
                          Orientation="Horizontal"
@@ -205,9 +206,7 @@
                                 WidthRequest="40"
                                 HeightRequest="40"
                                 CornerRadius="10"
-                                Clicked="Hide_Form"
-                            
-                            />
+                                Clicked="Hide_Form"/>
                     </Grid>
 
                 </Grid>

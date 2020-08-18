@@ -141,10 +141,10 @@ namespace TodoKernel_mobile.Viewmodels
                 headers.Add("Authorization", "Bearer " + App.UserSession.Token);
 
                 // define the body
-                string body = " { \"todolistId\": \"" + FormTitle + "\",\"todolistId\": \"" + CurrentTodolist.Id + "\" } ";
+                string body = " { \"name\": \"" + FormTitle + "\",\"todolistId\": \"" + CurrentTodolist.Id + "\" } ";
 
                 // Check it in the data base
-                await App.WsHost.ExecutePost("todos", "add", headers, null);
+                await App.WsHost.ExecutePost("todos", "add", headers, body);
 
                 // Add to the current item
                 CurrentItems.Add(new Item

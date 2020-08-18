@@ -60,10 +60,5 @@ namespace TodoKernel_mobile.Views
             Easing easing = Easing.SinOut;
             AddItemForm.Animate("anim", callback, startHeight, endiendHeight, rate, length, easing);
         }
-
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-
-        }
     }
 }
