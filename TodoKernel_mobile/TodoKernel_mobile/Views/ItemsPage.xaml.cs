@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TodoKernel_mobile.Models;
 using TodoKernel_mobile.Viewmodels;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -13,10 +14,11 @@ namespace TodoKernel_mobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemsPage : ContentPage
     {
+        private TodolistViewModel _vm;
         public ItemsPage()
         {
             InitializeComponent();
-            BindingContext = new TodolistViewModel();
+            BindingContext = _vm = new TodolistViewModel();
         }
 
         private void Open_Form(object sender, EventArgs e)
@@ -60,5 +62,7 @@ namespace TodoKernel_mobile.Views
             Easing easing = Easing.SinOut;
             AddItemForm.Animate("anim", callback, startHeight, endiendHeight, rate, length, easing);
         }
+
+        
     }
 }

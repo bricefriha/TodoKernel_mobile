@@ -14,6 +14,7 @@ namespace TodoKernel_mobile.Models
 
         [JsonProperty("done")]
         public bool Done { get; set; }
+        public bool Removed { get; set; }
     }
 
 }

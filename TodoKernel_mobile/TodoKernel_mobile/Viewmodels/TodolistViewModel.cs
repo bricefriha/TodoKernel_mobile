@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using MvvmHelpers;
 using TodoKernel_mobile.Models;
 
@@ -87,6 +88,15 @@ namespace TodoKernel_mobile.Viewmodels
                 return _addItem;
             }
         }
+        private Xamarin.Forms.Command _deleteItem;
+        public Xamarin.Forms.Command DeleteItem
+        {
+
+            get
+            {
+                return _deleteItem;
+            }
+        }
         private Xamarin.Forms.Command _tickItem;
         public Xamarin.Forms.Command TickItem
         {
@@ -144,17 +154,64 @@ namespace TodoKernel_mobile.Viewmodels
                 string body = " { \"name\": \"" + FormTitle + "\",\"todolistId\": \"" + CurrentTodolist.Id + "\" } ";
 
                 // Check it in the data base
-                await App.WsHost.ExecutePost("todos", "add", headers, body);
+                var item = await App.WsHost.ExecutePost<Item>("todos", "add", headers, body);
 
                 // Add to the current item
                 CurrentItems.Add(new Item
                 {
-                    ItemTitle = FormTitle
+                    ItemTitle = item.ItemTitle,
+                    Id = item.Id
                 });
 
                 // Empty the form
                 FormTitle = string.Empty;
             });
+
+            _deleteItem = new Xamarin.Forms.Command(async (id) =>
+               {
+                   try
+                   {
+                       //Item item = new Item();
+                       // Get the selected item
+                       //    item = (from itm in CurrentItems
+                       //            where itm.Id == id.ToString()
+                       //            select itm)
+                       //.FirstOrDefault<Item>();//CurrentItems.Where<Item>(item => item.Id == id.ToString()).FirstOrDefault();
+
+                       //    int itemIndex = CurrentItems.IndexOf(item);
+
+
+                       // Set the header
+                       IDictionary<string, string> headers = new Dictionary<string, string>();
+                       // Fetch the user token
+                       headers.Add("Authorization", "Bearer " + App.UserSession.Token);
+
+                       // Set paraeters
+                       string[] parameters = { id.ToString() };
+
+
+                       // Check it in the data base
+                       await App.WsHost.ExecuteDelete("todos", null, headers, null, parameters);
+
+                       // ToDo: I'm reloading everery data but it's not a good things performance wise. 
+                       //       I can't remove the item directely form the list because SwipeView is boken
+                       //
+                       // define the body
+                       string body = " { \"todolistId\": \"" + CurrentTodolist.Id + "\" } ";
+
+                       // Reload data
+                       CurrentItems = await App.WsHost.ExecuteGet<ObservableCollection<Item>>("todos", "get", headers, body);
+
+                       // Remove the item from the list
+                       //CurrentItems.Remove(item);
+
+                   }
+                   catch(Exception ex)
+                   {
+                       throw new Exception(ex.Message);
+                   }
+
+               });
 
             // Fetch all the todolists
             FetchTodolist();
@@ -172,7 +229,7 @@ namespace TodoKernel_mobile.Viewmodels
             // Request the server
             Todolists = await App.WsHost.ExecuteGet<ObservableCollection<Todolist>>("todolists", null, headers);
 
-            CurrentItems = new ObservableCollection<Item>();
+            _currentItems = new ObservableCollection<Item>();
             _currentTodolist = new Todolist();
 
             // Set the first todolist's items a the current items
