@@ -21,7 +21,7 @@ namespace TodoKernel_mobile.Views
             BindingContext = _vm = new TodolistViewModel();
         }
 
-        private void Open_Form(object sender, EventArgs e)
+        private void Open_Form_item(object sender, EventArgs e)
         {
             // Get screen info
             var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
@@ -35,6 +35,33 @@ namespace TodoKernel_mobile.Views
             uint length = 500;
             Easing easing = Easing.SinOut;
             AddItemForm.Animate("anim", callback, startHeight, endHeight, rate, length, easing);
+
+            // Close the other side bar if this one is opened
+            if (AddTodolistForm.Height > 0)
+            {
+                HideTopSlideBar();
+            }
+        }
+        private void Open_Form_Todolist(object sender, EventArgs e)
+        {
+            // Get screen info
+            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+
+
+            // Annimation
+            Action<double> callback = input => AddTodolistForm.HeightRequest = input;
+            double startHeight = 0;
+            double endHeight = 120;//mainDisplayInfo.Height / 20;
+            uint rate = 32;
+            uint length = 500;
+            Easing easing = Easing.SinOut;
+            AddItemForm.Animate("anim", callback, startHeight, endHeight, rate, length, easing);
+
+            // Close the other side bar if this one is opened
+            if (AddItemForm.Height > 0)
+            {
+                HideBottomSlideBar();
+            }
         }
         /// <summary>
         ///  event if the user tap in the body
@@ -47,6 +74,10 @@ namespace TodoKernel_mobile.Views
             {
                 // hide the bottom slide bar
                 HideBottomSlideBar();
+            }
+            else if (AddTodolistForm.Height > 0)
+            {
+                HideTopSlideBar();
             }
         }
         /// <summary>
@@ -62,7 +93,20 @@ namespace TodoKernel_mobile.Views
             Easing easing = Easing.SinOut;
             AddItemForm.Animate("anim", callback, startHeight, endiendHeight, rate, length, easing);
         }
+        /// <summary>
+        /// Method to hide the bottom slide bar
+        /// </summary>
+        private void HideTopSlideBar()
+        {
+            Action<double> callback = input => AddTodolistForm.HeightRequest = input;
+            double startHeight = 120;
+            double endiendHeight = 0;
+            uint rate = 32;
+            uint length = 500;
+            Easing easing = Easing.SinOut;
+            AddItemForm.Animate("anim", callback, startHeight, endiendHeight, rate, length, easing);
+        }
 
-        
+
     }
 }

@@ -97,6 +97,15 @@ namespace TodoKernel_mobile.Viewmodels
                 return _deleteItem;
             }
         }
+        private Xamarin.Forms.Command _addTodolist;
+        public Xamarin.Forms.Command AddTodolist
+        {
+
+            get
+            {
+                return _addTodolist;
+            }
+        }
         private Xamarin.Forms.Command _tickItem;
         public Xamarin.Forms.Command TickItem
         {
@@ -204,6 +213,39 @@ namespace TodoKernel_mobile.Viewmodels
 
                        // Remove the item from the list
                        //CurrentItems.Remove(item);
+
+                   }
+                   catch(Exception ex)
+                   {
+                       throw new Exception(ex.Message);
+                   }
+
+               });
+
+                _addTodolist = new Xamarin.Forms.Command(async (id) =>
+               {
+                   try
+                   {
+                       // Set the header
+                       IDictionary<string, string> headers = new Dictionary<string, string>();
+                       // Fetch the user token
+                       headers.Add("Authorization", "Bearer " + App.UserSession.Token);
+
+                       // define the body
+                       string body = " { \"title\": \"" + FormTitle + "\" } ";
+
+                       // Check it in the data base
+                       var todolist = await App.WsHost.ExecutePost<Item>("todolists", "create", headers, body);
+
+                       // Add to the current item
+                       Todolists.Add(new Todolist
+                       {
+                           Title = todolist.ItemTitle,
+                           Id = todolist.Id
+                       });
+
+                       // Empty the form
+                       FormTitle = string.Empty;
 
                    }
                    catch(Exception ex)
