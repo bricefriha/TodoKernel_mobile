@@ -32,7 +32,8 @@
                     Clicked="Open_Form_Todolist"
                     FontFamily="{DynamicResource FA-Solid}" 
                     TextColor="{StaticResource BackgroundColour}"
-                    BackgroundColor="{StaticResource SecondaryColour }"/>
+                    BackgroundColor="{StaticResource SecondaryColour }"
+                  />
         </Grid>
         
         <!--<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
@@ -68,7 +69,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <!-- The picker to select the todolist-->
-                    <Picker Grid.Column="1" 
+                        <Picker Grid.Column="1" 
                         ItemsSource="{Binding Todolists}" 
                         ItemDisplayBinding="{Binding Title}"
                         TextColor="{StaticResource PrimaryColour}"
@@ -76,9 +77,9 @@
                         FontSize="25"
                         WidthRequest="200"
                     
-                    >
-                    </Picker>
-                    <!-- list icon -->
+                    />
+
+                        <!-- list icon -->
                     <Label  Grid.Column="2"
                         Text="&#xf46d;" 
                         FontFamily="{DynamicResource FA-Solid}" 
@@ -324,7 +325,7 @@
                                 BackgroundColor="{StaticResource PrimaryColour}"
                                 VerticalOptions="CenterAndExpand"
                                 HorizontalOptions="CenterAndExpand"
-                                Command="{Binding AddItem}"
+                                Command="{Binding AddTodolist}"
                                 WidthRequest="40"
                                 HeightRequest="40"
                                 CornerRadius="10"

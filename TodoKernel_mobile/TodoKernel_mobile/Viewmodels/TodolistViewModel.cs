@@ -222,7 +222,7 @@ namespace TodoKernel_mobile.Viewmodels
 
                });
 
-                _addTodolist = new Xamarin.Forms.Command(async (id) =>
+                _addTodolist = new Xamarin.Forms.Command(async () =>
                {
                    try
                    {
@@ -235,17 +235,19 @@ namespace TodoKernel_mobile.Viewmodels
                        string body = " { \"title\": \"" + FormTitle + "\" } ";
 
                        // Check it in the data base
-                       var todolist = await App.WsHost.ExecutePost<Item>("todolists", "create", headers, body);
+                       var todolist = await App.WsHost.ExecutePost<Todolist>("todolists", "create", headers, body);
 
                        // Add to the current item
                        Todolists.Add(new Todolist
                        {
-                           Title = todolist.ItemTitle,
+                           Title = todolist.Title,
                            Id = todolist.Id
                        });
 
                        // Empty the form
                        FormTitle = string.Empty;
+
+                       UpdateCurrentTodolist(Todolists.Last());
 
                    }
                    catch(Exception ex)
@@ -275,10 +277,18 @@ namespace TodoKernel_mobile.Viewmodels
             _currentTodolist = new Todolist();
 
             // Set the first todolist's items a the current items
-            CurrentTodolist = Todolists[0];
+            UpdateCurrentTodolist(Todolists[0]);
+
+        }
+        /// <summary>
+        /// Select another todolist
+        /// </summary>
+        /// <param name="newTodolist"></param>
+        private void UpdateCurrentTodolist(Todolist newTodolist)
+        {
+            CurrentTodolist = newTodolist;
 
             CurrentItems = CurrentTodolist.Items;
-
         }
     }
 }
