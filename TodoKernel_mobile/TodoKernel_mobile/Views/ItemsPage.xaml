@@ -75,18 +75,17 @@
                         TextColor="{StaticResource PrimaryColour}"
                         SelectedItem="{Binding CurrentTodolist}"
                         FontSize="25"
-                        WidthRequest="200"
-                    
-                    />
+                        HorizontalTextAlignment="Center"
+                        WidthRequest="200"/>
 
                         <!-- list icon -->
-                    <Label  Grid.Column="2"
+                    <!--<Label  Grid.Column="2"
                         Text="&#xf46d;" 
                         FontFamily="{DynamicResource FA-Solid}" 
                         FontSize="40"
                         TextColor="{StaticResource PrimaryColour}"
                         VerticalOptions="Center"
-                        />
+                        />-->
                 </Grid>
             </steven:PancakeView>
             <ScrollView Grid.Row="1">
@@ -121,13 +120,13 @@
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
 
-                                            <!--When it's tick-->
+                                            <!--When it's ticked-->
                                             <Label Grid.Column="0"  
                                                Text="&#xf058;" 
                                                FontFamily="{DynamicResource FA-Solid}" 
                                                IsVisible="{Binding Done}" 
                                                FontSize="{StaticResource TickBoxSize}"
-                                               TextColor="#329932"
+                                               TextColor="{StaticResource PrimaryColour}"
                                                >
                                                 <Label.GestureRecognizers>
                                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TodolistViewModel}}, Path=TickItem}"

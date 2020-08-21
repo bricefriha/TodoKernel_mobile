@@ -5,9 +5,37 @@
              xmlns:views="clr-namespace:TodoKernel_mobile.Views"
        BackgroundColor="{StaticResource SecondaryColour }"
        
+       
        >
+    <Shell.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="itemFontSize">25</x:Double>
+        </ResourceDictionary>
+    </Shell.Resources>
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid HorizontalOptions="Center"
+                  >
+                <Grid.ColumnDefinitions>
+                    <!-- Icon -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- Title-->
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Icon -->
+                <Label  Grid.Column="0"
+                        Margin="50,0,0,0"
+                        VerticalOptions="Center"
+                        Text="{Binding Icon}" 
+                        FontFamily="{DynamicResource FA-Solid}" 
+                        FontSize="{StaticResource itemFontSize}"
+                        TextColor="{StaticResource PrimaryColour}"/>
+                <Label Grid.Column="1" Text="{Binding Title}" FontSize="{StaticResource itemFontSize}" TextColor="{StaticResource FontColour}" HorizontalOptions="Start"  />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+    <FlyoutItem Title="Todolists" Icon="&#xf46d;" >
 
-    <FlyoutItem Title="About">
 
         <ShellContent x:Name="ItemsPage"
                       ContentTemplate="{DataTemplate views:ItemsPage}" />
