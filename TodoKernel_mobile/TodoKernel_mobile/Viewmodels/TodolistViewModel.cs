@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MvvmHelpers;
 using TodoKernel_mobile.Models;
+using TodoKernel_mobile.Views;
+using Xamarin.Essentials;
 
 namespace TodoKernel_mobile.Viewmodels
 {
@@ -86,6 +88,14 @@ namespace TodoKernel_mobile.Viewmodels
             get
             {
                 return _addItem;
+            }
+        }private Xamarin.Forms.Command _signout;
+        public Xamarin.Forms.Command Signout
+        {
+
+            get
+            {
+                return _signout;
             }
         }
         private Xamarin.Forms.Command _deleteItem;
@@ -174,6 +184,21 @@ namespace TodoKernel_mobile.Viewmodels
 
                 // Empty the form
                 FormTitle = string.Empty;
+            });
+            _signout = new Xamarin.Forms.Command( () =>
+            {
+                try
+                {
+                    // Remove the stored token
+                    SecureStorage.Remove("oauth_token");
+
+                    // Move to the sign in page
+                    App.Current.MainPage = new SignInPage();
+                } 
+                catch (Exception ex)
+                {
+                    throw new Exception("Signout process: " + ex.Message);
+                }
             });
 
             _deleteItem = new Xamarin.Forms.Command(async (id) =>
