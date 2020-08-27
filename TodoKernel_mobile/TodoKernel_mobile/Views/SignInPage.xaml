@@ -27,10 +27,10 @@
             
             <!-- Main frame -->
             <Frame  Grid.Row="0" HorizontalOptions="CenterAndExpand"
-               VerticalOptions="CenterAndExpand"
-               Margin="0,0,0,90"
-               WidthRequest="320"
-               HeightRequest="400"
+                   VerticalOptions="CenterAndExpand"
+                   Margin="0,0,0,90"
+                   WidthRequest="320"
+                   HeightRequest="400"
                     HasShadow="False"
                CornerRadius="30"
                BackgroundColor="{StaticResource BackgroundColour}">
@@ -45,7 +45,7 @@
                 <Label Text="Login"
                        FontSize="38"
                        Grid.Row="0"
-                       FontAttributes="Bold"
+                       FontFamily="{DynamicResource SemiBoldAndItalic}"
                        HorizontalOptions="Start"
                        TextColor="{StaticResource FontColour}"/>
                 <!-- Login -->
