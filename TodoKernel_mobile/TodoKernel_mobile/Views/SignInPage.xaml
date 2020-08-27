@@ -31,6 +31,7 @@
                Margin="0,0,0,90"
                WidthRequest="320"
                HeightRequest="400"
+                    HasShadow="False"
                CornerRadius="30"
                BackgroundColor="{StaticResource BackgroundColour}">
             <Grid>
@@ -50,9 +51,9 @@
                 <!-- Login -->
                 <StackLayout Grid.Row="1">
                     <Label Text="Username or Email address"
-                               TextColor="{StaticResource FontColour}"
-                               Grid.Row="0"
-                               FontAttributes="Bold"/>
+                            TextColor="{StaticResource FontColour}"
+                            Grid.Row="0"
+                            FontAttributes="Bold"/>
                     <Frame Grid.Row="1" 
                            Padding="15,0,15,0"
                            Margin="1"
@@ -75,11 +76,10 @@
                            Margin="1"
                            CornerRadius="10">
                             <Entry Text="{Binding Password}"
-                               IsPassword="True"
-                               
+                                    IsPassword="True"
                                     HorizontalOptions="Fill"
                                    VerticalOptions="End"/>
-                    </Frame>
+                        </Frame>
 
                 </StackLayout>
                 <!-- Log in button -->
