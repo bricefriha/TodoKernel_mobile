@@ -59,8 +59,7 @@
                            Margin="1"
                            CornerRadius="10">
                             <Entry Text="{Binding Login}"
-                               
-                                    HorizontalOptions="Fill"
+                                   HorizontalOptions="Fill"
                                    VerticalOptions="End"/>
                         </Frame>
 
@@ -75,11 +74,11 @@
                            Padding="15,0,15,0"
                            Margin="1"
                            CornerRadius="10">
-                            <Entry Text="{Binding Password}"
-                                    IsPassword="True"
-                                    HorizontalOptions="Fill"
-                                   VerticalOptions="End"/>
-                        </Frame>
+                        <Entry Text="{Binding Password}"
+                                IsPassword="True"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="End"/>
+                    </Frame>
 
                 </StackLayout>
                 <!-- Log in button -->
@@ -89,17 +88,16 @@
                            Grid.Row="0"
                            HorizontalOptions="EndAndExpand"
                            />
-                    <Button  
-                           x:Name="btnSignin"
-                           Padding="15,0,15,0"
-                           Margin="1"
-                           CornerRadius="8"
-                           BackgroundColor="{StaticResource PrimaryColour}"
-                           TextColor="{StaticResource BackgroundColour}"
-                           FontSize="18"
-                           FontAttributes="Bold"
-                           Text="Login"
-                            Command="{Binding SignIn}"
+                    <Button   x:Name="btnSignin"
+                              Padding="15,0,15,0"
+                              Margin="1"
+                              CornerRadius="8"
+                              BackgroundColor="{StaticResource PrimaryColour}"
+                              TextColor="{StaticResource BackgroundColour}"
+                              FontSize="18"
+                              FontAttributes="Bold"
+                              Text="Login"
+                              Command="{Binding SignIn}"
                         />
 
                 </StackLayout>

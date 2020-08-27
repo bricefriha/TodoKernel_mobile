@@ -31,5 +31,51 @@
             <On Platform="iOS" Value="Font Awesome 5 Free Solid" />
         </OnPlatform>
 
+        <!-- Open Sans -->
+        <OnPlatform x:TypeArguments="x:String" x:Key="Bold">
+            <On Platform="Android" Value="OpenSans-Bold" />
+            <On Platform="iOS" Value="OpenSans-Bold" />
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="BoldAndItalic">
+            <On Platform="Android" Value="OpenSans-BoldItalic" />
+            <On Platform="iOS" Value="OpenSans-BoldItalic" />
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="ExtraBold">
+            <On Platform="Android" Value="OpenSans-ExtraBold" />
+            <On Platform="iOS" Value="OpenSans-ExtraBold" />
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="ExtraBoldAndItalic">
+            <On Platform="Android" Value="OpenSans-ExtraBoldItalic" />
+            <On Platform="iOS" Value="OpenSans-ExtraBoldItalic" />
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="Italic">
+            <On Platform="Android" Value="OpenSans-Italic" />
+            <On Platform="iOS" Value="OpenSans-Italic" />
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="ExtraBoldAndItalic">
+            <On Platform="Android" Value="OpenSans-ExtraBoldItalic" />
+            <On Platform="iOS" Value="OpenSans-ExtraBoldItalic" />
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="Light">
+            <On Platform="Android" Value="OpenSans-Light" />
+            <On Platform="iOS" Value="OpenSans-Light" />
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="LightAndItalic">
+            <On Platform="Android" Value="OpenSans-LightItalic" />
+            <On Platform="iOS" Value="OpenSans-LightItalic" />
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="Regular">
+            <On Platform="Android" Value="OpenSans-Regular" />
+            <On Platform="iOS" Value="OpenSans-Regular" />
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="SemiBold">
+            <On Platform="Android" Value="OpenSans-SemiBold" />
+            <On Platform="iOS" Value="OpenSans-SemiBold" />
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="SemiBoldAndItalic">
+            <On Platform="Android" Value="OpenSans-SemiBoldItalic" />
+            <On Platform="iOS" Value="OpenSans-SemiBoldItalic" />
+        </OnPlatform>
+
     </Application.Resources>
 </Application>
