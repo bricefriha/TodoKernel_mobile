@@ -49,11 +49,13 @@
                        HorizontalOptions="Start"
                        TextColor="{StaticResource FontColour}"/>
                 <!-- Login -->
+                    
                 <StackLayout Grid.Row="1">
                     <Label Text="Username or Email address"
                             TextColor="{StaticResource FontColour}"
                             Grid.Row="0"
                             FontFamily="{DynamicResource SemiBold}"/>
+                    
                     <Frame Grid.Row="1" 
                            Padding="15,0,15,0"
                            Margin="1"
@@ -62,9 +64,24 @@
                                    FontFamily="{DynamicResource Regular}"
                                    HorizontalOptions="Fill"
                                    VerticalOptions="End"/>
-                        </Frame>
+                            <Frame.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean"
+                                            iOS="false"
+                                            Android="True"/>
+                            </Frame.IsVisible>
+                    </Frame>
+                        <Entry Text="{Binding Login}"
+                                   FontFamily="{DynamicResource Regular}"
+                                   HorizontalOptions="Fill"
+                                   VerticalOptions="End">
+                            <Entry.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean"
+                                            iOS="True"
+                                            Android="False"/>
+                            </Entry.IsVisible>
+                        </Entry>
 
-                </StackLayout>
+                    </StackLayout>
                 <!-- Password -->
                 <StackLayout Grid.Row="2">
                     <Label Text="Password"
@@ -80,9 +97,25 @@
                                 IsPassword="True"
                                 HorizontalOptions="Fill"
                                 VerticalOptions="End"/>
+                            <Frame.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean"
+                                            iOS="false"
+                                            Android="True"/>
+                            </Frame.IsVisible>
                     </Frame>
+                        <Entry Text="{Binding Password}"
+                                FontFamily="{DynamicResource Regular}"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="End"
+                               IsPassword="True">
+                        <Entry.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean"
+                                        iOS="True"
+                                        Android="False"/>
+                        </Entry.IsVisible>
+                    </Entry>
 
-                </StackLayout>
+                    </StackLayout>
                 <!-- Log in button -->
                 <StackLayout Grid.Row="3">
                     <Label Text="Did you forget your password?"
