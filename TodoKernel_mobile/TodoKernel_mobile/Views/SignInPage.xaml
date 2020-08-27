@@ -45,7 +45,7 @@
                 <Label Text="Login"
                        FontSize="38"
                        Grid.Row="0"
-                       FontFamily="{DynamicResource SemiBoldAndItalic}"
+                       FontFamily="{DynamicResource Bold}"
                        HorizontalOptions="Start"
                        TextColor="{StaticResource FontColour}"/>
                 <!-- Login -->
@@ -53,12 +53,13 @@
                     <Label Text="Username or Email address"
                             TextColor="{StaticResource FontColour}"
                             Grid.Row="0"
-                            FontAttributes="Bold"/>
+                            FontFamily="{DynamicResource SemiBold}"/>
                     <Frame Grid.Row="1" 
                            Padding="15,0,15,0"
                            Margin="1"
                            CornerRadius="10">
                             <Entry Text="{Binding Login}"
+                                   FontFamily="{DynamicResource Regular}"
                                    HorizontalOptions="Fill"
                                    VerticalOptions="End"/>
                         </Frame>
@@ -69,12 +70,13 @@
                     <Label Text="Password"
                            TextColor="{StaticResource FontColour}"
                            Grid.Row="0"
-                           FontAttributes="Bold"/>
+                           FontFamily="{DynamicResource SemiBold}"/>
                     <Frame Grid.Row="1" 
                            Padding="15,0,15,0"
                            Margin="1"
                            CornerRadius="10">
                         <Entry Text="{Binding Password}"
+                               FontFamily="{DynamicResource Regular}"
                                 IsPassword="True"
                                 HorizontalOptions="Fill"
                                 VerticalOptions="End"/>
@@ -86,6 +88,7 @@
                     <Label Text="Did you forget your password?"
                            TextColor="{StaticResource FontColour}"
                            Grid.Row="0"
+                           FontFamily="{DynamicResource SemiBold}"
                            HorizontalOptions="EndAndExpand"
                            />
                     <Button   x:Name="btnSignin"
@@ -95,7 +98,7 @@
                               BackgroundColor="{StaticResource PrimaryColour}"
                               TextColor="{StaticResource BackgroundColour}"
                               FontSize="18"
-                              FontAttributes="Bold"
+                              FontFamily="{DynamicResource Bold}"
                               Text="Login"
                               Command="{Binding SignIn}"
                         />

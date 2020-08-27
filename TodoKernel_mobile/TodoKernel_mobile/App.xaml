@@ -36,7 +36,7 @@
             <On Platform="Android" Value="OpenSans-Bold.ttf#Open Sans" />
             <On Platform="iOS" Value="OpenSans-Bold" />
         </OnPlatform>
-        <OnPlatform x:TypeArguments="x:String" x:Key="BoldAndItalic">
+        <OnPlatform x:TypeArguments="x:String" x:Key="Bold_Italic">
             <On Platform="Android" Value="OpenSans-BoldItalic.ttf#Open Sans" />
             <On Platform="iOS" Value="OpenSans-BoldItalic" />
         </OnPlatform>
@@ -44,7 +44,7 @@
             <On Platform="Android" Value="OpenSans-ExtraBold.ttf#Open Sans" />
             <On Platform="iOS" Value="OpenSans-ExtraBold" />
         </OnPlatform>
-        <OnPlatform x:TypeArguments="x:String" x:Key="ExtraBoldAndItalic">
+        <OnPlatform x:TypeArguments="x:String" x:Key="ExtraBold_Italic">
             <On Platform="Android" Value="OpenSans-ExtraBoldItalic.ttf#Open Sans" />
             <On Platform="iOS" Value="OpenSans-ExtraBoldItalic" />
         </OnPlatform>
@@ -56,7 +56,7 @@
             <On Platform="Android" Value="OpenSans-Light.ttf#Open Sans" />
             <On Platform="iOS" Value="OpenSans-Light" />
         </OnPlatform>
-        <OnPlatform x:TypeArguments="x:String" x:Key="LightAndItalic">
+        <OnPlatform x:TypeArguments="x:String" x:Key="Light_Italic">
             <On Platform="Android" Value="OpenSans-LightItalic.ttf#Open Sans" />
             <On Platform="iOS" Value="OpenSans-LightItalic" />
         </OnPlatform>
@@ -68,7 +68,7 @@
             <On Platform="Android" Value="OpenSans-SemiBold.ttf#Open Sans" />
             <On Platform="iOS" Value="OpenSans-SemiBold" />
         </OnPlatform>
-        <OnPlatform x:TypeArguments="x:String" x:Key="SemiBoldAndItalic">
+        <OnPlatform x:TypeArguments="x:String" x:Key="SemiBold_Italic">
             <On Platform="Android" Value="OpenSans-SemiBoldItalic.ttf#Open Sans" />
             <On Platform="iOS" Value="OpenSans-SemiBoldItalic" />
         </OnPlatform>
