@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:MaterialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              x:Class="TodoKernel_mobile.Views.SignInPage"
              BackgroundColor="{StaticResource SecondaryColour}">
     <ContentPage.Content >
@@ -26,14 +27,15 @@
             </magic:GradientView>
             
             <!-- Main frame -->
-            <Frame  Grid.Row="0" HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="CenterAndExpand"
-                   Margin="0,0,0,90"
-                   WidthRequest="320"
-                   HeightRequest="400"
-                    HasShadow="False"
-               CornerRadius="30"
-               BackgroundColor="{StaticResource BackgroundColour}">
+            <MaterialFrame:MaterialFrame  Grid.Row="0" HorizontalOptions="CenterAndExpand"
+                                          VerticalOptions="CenterAndExpand"
+                                          Margin="0,0,0,90"
+                                          WidthRequest="320"
+                                          HeightRequest="400"
+                                          MaterialTheme="Acrylic"
+                                          HasShadow="False"
+                                          CornerRadius="25"
+                                          BackgroundColor="{StaticResource BackgroundColour}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="90"/>
@@ -142,7 +144,7 @@
 
 
                 </Grid>
-        </Frame>
+        </MaterialFrame:MaterialFrame>
         </Grid>
 
 
