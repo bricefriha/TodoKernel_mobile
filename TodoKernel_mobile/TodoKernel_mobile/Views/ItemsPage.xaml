@@ -70,13 +70,14 @@
                     </Grid.ColumnDefinitions>
                     <!-- The picker to select the todolist-->
                         <Picker Grid.Column="1" 
-                        ItemsSource="{Binding Todolists}" 
-                        ItemDisplayBinding="{Binding Title}"
-                        TextColor="{StaticResource PrimaryColour}"
-                        SelectedItem="{Binding CurrentTodolist}"
-                        FontSize="25"
-                        HorizontalTextAlignment="Center"
-                        WidthRequest="200"/>
+                                ItemsSource="{Binding Todolists}" 
+                                ItemDisplayBinding="{Binding Title}"
+                                TextColor="{StaticResource PrimaryColour}"
+                                SelectedItem="{Binding CurrentTodolist}"
+                                FontFamily="{DynamicResource Bold}"
+                                FontSize="25"
+                                HorizontalTextAlignment="Center"
+                                WidthRequest="200"/>
 
                         <!-- list icon -->
                     <!--<Label  Grid.Column="2"
@@ -126,7 +127,7 @@
                                                FontFamily="{DynamicResource FA-Solid}" 
                                                IsVisible="{Binding Done}" 
                                                FontSize="{StaticResource TickBoxSize}"
-                                               TextColor="{StaticResource PrimaryColour}"
+                                               TextColor="Green"
                                                >
                                                 <Label.GestureRecognizers>
                                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TodolistViewModel}}, Path=TickItem}"
@@ -154,6 +155,7 @@
                                                    Text="{Binding ItemTitle}"
                                                    HeightRequest="200" 
                                                    VerticalOptions="Start"
+                                                   FontFamily="{DynamicResource SemiBold}"
                                                    FontSize="{StaticResource ItemFontSize}"
                                                    TextColor="{StaticResource FontColour}"/>
                                         </Grid>
