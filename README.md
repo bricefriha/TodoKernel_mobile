@@ -10,3 +10,5 @@ todo app using [Xamarin.forms](https://github.com/xamarin/Xamarin.Forms) and [Cu
   </a>
 </p>
 
+This app use the pre existing [TodoKernel API](https://github.com/bricefriha/TodoKernel)
+
