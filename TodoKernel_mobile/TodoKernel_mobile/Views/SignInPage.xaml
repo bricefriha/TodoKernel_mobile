@@ -70,7 +70,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="90"/>
                             <RowDefinition Height="80"/>
-                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="90"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <!-- Title -->
@@ -150,12 +150,13 @@
                         </StackLayout>
                         <!-- Log in button -->
                         <StackLayout Grid.Row="3">
+                            <!-- Forgotten password -->
                             <Label Text="Did you forget your password?"
                                    TextColor="{StaticResource FontColour}"
-                                   Grid.Row="0"
                                    FontFamily="{DynamicResource SemiBold}"
                                    HorizontalOptions="EndAndExpand"
                                    />
+                            <!-- Button to login-->
                             <Button   x:Name="btnSignin"
                                       Padding="15,0,15,0"
                                       Margin="1"
@@ -169,7 +170,14 @@
                                 />
 
                         </StackLayout>
-                        <Label Text="{Binding LoadingState}"/>
+                        <!-- Error message-->
+                        <Label Text="{Binding LoadingState}"
+                               TextColor="Red"
+                               FontFamily="{DynamicResource SemiBold}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Grid.Row="4"
+                               />
 
 
 

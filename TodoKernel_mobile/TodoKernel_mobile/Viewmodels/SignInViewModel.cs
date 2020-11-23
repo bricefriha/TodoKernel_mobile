@@ -97,8 +97,8 @@ namespace TodoKernel_mobile.Viewmodels
                 }
                 else
                 {
-                    LoadingState = "Nope";
-
+                    LoadingState = "Wrong password or username";
+                    ShowLoadingScreen(false);
                 }
 
 
