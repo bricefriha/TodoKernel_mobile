@@ -66,9 +66,12 @@ namespace TodoKernel_mobile.Viewmodels
         }
         public SignInViewModel()
         {
+            IsBusy = false;
             _signIn = new Xamarin.Forms.Command(async () =>
             {
                 string body;
+
+                ShowLoadingScreen(true);
 
                 // Detect if the login is a username or an email
                 if (Util.DetectEmail(Login))
@@ -80,6 +83,7 @@ namespace TodoKernel_mobile.Viewmodels
 
                 // Execute the request
                 App.UserSession = await App.WsHost.ExecutePost<User>("users", "authenticate", null, body);
+
 
                 if (App.UserSession != null)
                 {
@@ -98,11 +102,23 @@ namespace TodoKernel_mobile.Viewmodels
                 }
 
 
+
             });
 
             Login = "brice.friha@outlook.com";
             Password = "pwd";
         }
-    
+
+        /// <summary>
+        /// Show the loading stuff
+        /// </summary>
+        /// <param name="shown">True show; unshow</param>
+        private void ShowLoadingScreen(bool shown)
+        {
+            IsBusy = shown;
+
+            ((SignInPage)App.Current.MainPage).AnimateMainFrame(shown);
+
+        }
     }
 }
